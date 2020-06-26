@@ -17,6 +17,26 @@
 		  "stackfile": "stack/jackett.yml"
 		},
 		"env": [
+			{
+				"name": "PUID",
+				"label": "PUID",
+				"default": "1000"
+			  },
+			  {
+				"name": "PGID",
+				"label": "PGID",
+				"default": "100"
+			  },
+			  {
+				"name": "TZ",
+				"label": "TZ",
+				"default": "America/Sao_Paulo"
+			  },
+			  {
+				"name": "UMASK_SET",
+				"label": "UMASK_SET",
+				"default": "022"
+			  },
 		  {
 			"name": "CONFIG",
 			"label": "CONFIG",
@@ -27,6 +47,7 @@
 			"label": "DOWNLOADS",
 			"default": "/DISCO/appdata/jackett/blackhole"
 		  }
+		
 		]
 	  }
 

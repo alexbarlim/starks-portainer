@@ -5,10 +5,10 @@
         image: linuxserver/jackett
         container_name: jackett
         environment:
-          - PUID=1000
-          - PGID=100
-          - TZ=America/Sao_Paulo
-          - UMASK_SET=022 #optional
+          - PUID=${PUID}
+          - PGID=${PGID}
+          - TZ=${TZ}
+          - UMASK_SET=${UMASK_SET} #optional
         volumes:
           - ${CONFIG}:/config
           - ${DOWNLOADS}:/downloads
