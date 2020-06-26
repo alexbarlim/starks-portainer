@@ -810,11 +810,6 @@
 			  "name": "TZ",
 			  "label": "TZ",
 			  "default": "America/Sao_Paulo"
-			},
-			{
-			  "name": "UMASK_SET",
-			  "label": "UMASK_SET",
-			  "default": "022"
 			}
 		  ],
 
