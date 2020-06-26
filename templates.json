@@ -770,6 +770,80 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Duplicati",
+		"name": "duplicati",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/duplicati.png",
+		"image": "linuxserver/duplicati:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/duplicati/config"
+			},
+			{
+			  "container": "/backups",
+			  "bind": "/srv/dev-disk-by-label-6TB/backups"
+			},
+			{
+				"container": "/source-internal",
+				"bind": "/"
+			  },
+			{
+				"container": "/source-6tb",
+				"bind": "/srv/dev-disk-by-label-6TB"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8200:8200/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
