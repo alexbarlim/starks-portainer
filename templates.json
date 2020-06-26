@@ -13,7 +13,7 @@
 		"note": "0",
 		"platform": "linux",
 		"repository": {
-		  "url": "https://github.com/alexbarlim/portainer-templates",
+		  "url": "https://github.com/alexbarlim/starks-portainer",
 		  "stackfile": "stack/jackett.yml"
 		},
 		"env": [
