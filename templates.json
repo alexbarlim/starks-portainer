@@ -563,6 +563,76 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Jellyfin",
+		"name": "jellyfin",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/jellyfin.png",
+		"image": "linuxserver/jellyfin:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/path/to/library-jellyfin"
+			},
+			{
+			  "container": "/media",
+			  "bind": "/srv/dev-disk-by-label-6TB"
+			},
+			{
+				"container": "/opt/vc/lib",
+				"bind": "/opt/vc/lib"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8096:8096/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
