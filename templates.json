@@ -787,7 +787,7 @@
 		"name": "duplicati",
 		"description": "Descrição.",
 		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/duplicati.png",
-		"image": "linuxserver/duplicati",
+		"image": "linuxserver/duplicati:latest",
 		"categories": [
 		  "All"
 		],
