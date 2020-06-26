@@ -10,7 +10,7 @@
 		"title": "Jackett",
 		"name": "jackett",
 		"description": "Jackett funciona como um servidor proxy. Um agregador de indexadores. Ele é essencial para que o Sonarr, Radarr, Lidarr e Transmission funcionem adequadamente.",
-		"logo": "https://raw.githubusercontent.com/alexbarlim/starks-portainer/master/imgs/jackett.png",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/jackett.png",
 		"image": "linuxserver/jackett:latest",
 		"categories": [
 		  "All"
