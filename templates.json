@@ -1,0 +1,41 @@
+[
+	
+
+	{
+		"type": 3,
+		"title": "Jackett",
+		"name": "jackett",
+		"description": "Jackett works as a proxy server it translates queries from apps like Sonarr etc into tracker-site-specific http queries and parses the html response sending results back to the requesting software.[",
+		"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/jacket-icon.png",
+		"categories": [
+		  "Other"
+		],
+		"note": "0",
+		"platform": "linux",
+		"repository": {
+		  "url": "https://github.com/alexbarlim/portainer-templates",
+		  "stackfile": "stack/jackett.yml"
+		},
+		"env": [
+		  {
+			"name": "CONFIG",
+			"label": "CONFIG",
+			"default": "/DISCO/appdata/jackett/data"
+		  },
+		  {
+			"name": "DOWNLOADS",
+			"label": "DOWNLOADS",
+			"default": "/DISCO/appdata/jackett/blackhole"
+		  }
+		]
+	  }
+
+
+
+
+
+
+
+
+
+]
