@@ -810,6 +810,11 @@
 			  "name": "TZ",
 			  "label": "TZ",
 			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
 			}
 		  ],
 
@@ -823,6 +828,10 @@
 			  "container": "/backups",
 			  "bind": "/srv/dev-disk-by-label-6TB/backups"
 			},
+			{
+				"container": "/source",
+				"bind": "/"
+			  },
 			{
 				"container": "/source-internal",
 				"bind": "/"
