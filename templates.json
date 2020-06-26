@@ -5,9 +5,7 @@
 
 
 
-
-
-	{
+	  {
 		"type": 1,
 		"title": "Jackett",
 		"name": "jackett",
@@ -18,48 +16,55 @@
 		  "All"
 		],
 		"platform": "linux",
-		"restart_policy": "unless-stopped",
 		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/blackhole"
+			}
+		  ],
+
+
 		"ports": [
 		  "9117:9117/tcp"
 		],
-		"volumes": [
-		  {
-			"container": "/config",
-			"bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/data"
-		  },
-		  {
-			"container": "/downloads",
-			"bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/blackhole"
-		  }
-		],
-		"env": [
-		  {
-			"name": "PUID",
-			"label": "PUID",
-			"default": "1000"
-		  },
-		  {
-			"name": "PGID",
-			"label": "PGID",
-			"default": "100"
-		  },
-		  {
-			"name": "TZ",
-			"label": "TZ",
-			"default": "America/Sao_Paulo"
-		  },
-		  {
-			"name": "UMASK_SET",
-			"label": "UMASK_SET",
-			"default": "022"
-		  }
-		]
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
 
-
+	  
 
 
 
