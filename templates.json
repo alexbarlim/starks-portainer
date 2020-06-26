@@ -1,59 +1,60 @@
 [
 	
 
+	
+
+
+
+
+
 	{
-		"type": 3,
+		"type": 1,
 		"title": "Jackett",
 		"name": "jackett",
 		"description": "Jackett funciona como um servidor proxy. Um agregador de indexadores. Ele é essencial para que o Sonarr, Radarr, Lidarr e Transmission funcionem adequadamente.",
 		"logo": "https://raw.githubusercontent.com/alexbarlim/starks-portainer/master/imgs/jacket-icon.png",
+		"image": "linuxserver/jackett:latest",
 		"categories": [
-		  "Other"
+		  "All"
 		],
-		"note": "0",
 		"platform": "linux",
-		"repository": {
-		  "url": "https://github.com/alexbarlim/starks-portainer",
-		  "stackfile": "stack/jackett.yml"
-		},
-		"env": [
-			{
-				"name": "PUID",
-				"label": "PUID",
-				"default": "1000"
-			  },
-			  {
-				"name": "PGID",
-				"label": "PGID",
-				"default": "100"
-			  },
-			  {
-				"name": "TZ",
-				"label": "TZ",
-				"default": "America/Sao_Paulo"
-			  },
-			  {
-				"name": "UMASK_SET",
-				"label": "UMASK_SET",
-				"default": "022"
-			  }
-	
+		"restart_policy": "unless-stopped",
+		"ports": [
+		  "9117:9117/tcp"
 		],
-
 		"volumes": [
-			{
-			"name": "CONFIG",
-			"label": "CONFIG",
-			"default": "/srv/dev-disk-by-label-6TB/appdata/jackett/data"
-			},
-			{
-			"name": "DOWNLOADS",
-			"label": "DOWNLOADS",
-			"default": "/srv/dev-disk-by-label-6TB/appdata/jackett/blackhole"
-			}
+		  {
+			"container": "/config",
+			"bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/data"
+		  },
+		  {
+			"container": "/downloads",
+			"bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/blackhole"
+		  }
+		],
+		"env": [
+		  {
+			"name": "PUID",
+			"label": "PUID",
+			"default": "1000"
+		  },
+		  {
+			"name": "PGID",
+			"label": "PGID",
+			"default": "100"
+		  },
+		  {
+			"name": "TZ",
+			"label": "TZ",
+			"default": "America/Sao_Paulo"
+		  },
+		  {
+			"name": "UMASK_SET",
+			"label": "UMASK_SET",
+			"default": "022"
+		  }
 		]
-
-	}
+	  }
 
 
 
