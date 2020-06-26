@@ -48,9 +48,21 @@
 			"label": "DOWNLOADS",
 			"default": "/DISCO/appdata/jackett/blackhole"
 		  }
-		
+	
+		],
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/jackett/blackhole"
+			}
 		]
-	  }
+
+	}
 
 
 
