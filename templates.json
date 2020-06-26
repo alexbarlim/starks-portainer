@@ -699,6 +699,77 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Ubooquity",
+		"name": "ubooquity",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/ubooquity.png",
+		"image": "linuxserver/ubooquity:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "MAXMEM",
+			  "label": "MAXMEM",
+			  "default": "1024"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/ubooquity/config"
+			},
+			{
+			  "container": "/books",
+			  "bind": "/srv/dev-disk-by-label-6TB/cursos"
+			},
+			{
+				"container": "/files",
+				"bind": "/srv/dev-disk-by-label-6TB"
+			  }
+		  ],
+
+
+		"ports": [
+		  "2202:2202/tcp",
+		  "2203:2203/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
