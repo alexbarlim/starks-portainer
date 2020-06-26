@@ -792,6 +792,7 @@
 		  "All"
 		],
 		"platform": "linux",
+		"network": "bridge",
 
 
 		"env": [
