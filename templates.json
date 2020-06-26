@@ -497,7 +497,73 @@
 		],
 		"restart_policy": "unless-stopped"
 		
-	  }
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Deemix",
+		"name": "deemix",
+		"description": "Mais informações em: https://gitlab.com/Bockiii/deemix-docker",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/deemix.png",
+		"image": "registry.gitlab.com/bockiii/deemix-docker",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/deemix/config"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/srv/dev-disk-by-label-6TB/downloads"
+			}
+		  ],
+
+
+		"ports": [
+		  "6595:6595/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
 
 
 
