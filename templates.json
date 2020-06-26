@@ -129,6 +129,76 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Radarr",
+		"name": "radarr",
+		"description": "Radarr é a mesma coisa do Sonarr, só que para filmes. Se bem configurado, ele captura, baixa, renomeia e organiza o filme.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/radarr.png",
+		"image": "linuxserver/radarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/radarr/data"
+			},
+			{
+			  "container": "/movies",
+			  "bind": "/srv/dev-disk-by-label-6TB/movies"
+			},
+			{
+				"container": "/downloads",
+				"bind": "/srv/dev-disk-by-label-6TB/downloads"
+			  }
+		  ],
+
+
+		"ports": [
+		  "7878:7878/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
