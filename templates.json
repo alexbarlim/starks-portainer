@@ -6,7 +6,7 @@
 		"title": "Jackett",
 		"name": "jackett",
 		"description": "Jackett funciona como um servidor proxy. Um agregador de indexadores. Ele é essencial para que o Sonarr, Radarr, Lidarr e Transmission funcionem adequadamente.",
-		"logo": "imgs/jacket-icon.png",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/starks-portainer/master/imgs/jacket-icon.png",
 		"categories": [
 		  "Other"
 		],
@@ -37,6 +37,7 @@
 				"label": "UMASK_SET",
 				"default": "022"
 			  },
+	
 		  {
 			"name": "CONFIG",
 			"label": "CONFIG",
