@@ -510,6 +510,72 @@
 
 	  {
 		"type": 1,
+		"title": "Tautulli",
+		"name": "tautulli",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/tautulli.png",
+		"image": "linuxserver/tautulli:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/tautulli"
+			},
+			{
+			  "container": "/logs",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/tautulli"
+			}
+		  ],
+
+
+		"ports": [
+		  "8181:8181/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
 		"title": "Deemix",
 		"name": "deemix",
 		"description": "Mais informações em: https://gitlab.com/Bockiii/deemix-docker",
