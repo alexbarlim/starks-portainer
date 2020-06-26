@@ -340,6 +340,89 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Transmission",
+		"name": "transmission",
+		"description": "Client Torrent.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/transmission.png",
+		"image": "linuxserver/transmission:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			},
+			{
+				"name": "TRANSMISSION_WEB_HOME",
+				"label": "TRANSMISSION_WEB_HOME",
+				"default": "/combustion-release/"
+			  },
+			  {
+				"name": "USER",
+				"label": "USER",
+				"default": "username"
+			  },
+			  {
+				"name": "PASS",
+				"label": "PASS",
+				"default": "password"
+			  }
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/transmission/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/srv/dev-disk-by-label-6TB/downloads"
+			}
+		  ],
+
+
+		"ports": [
+		  "9091:9091/tcp",
+		  "51413:51413/tcp",
+		  "51413:51413/udp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
