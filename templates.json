@@ -60,6 +60,75 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Sonarr",
+		"name": "sonarr",
+		"description": "Sonarr monitora vários feeds. Se bem configurado, ele captura, baixa, renomeia e organiza sempre que sair um episódio novo.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/sonarr.png",
+		"image": "linuxserver/sonarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/sonarr/data"
+			},
+			{
+			  "container": "/tv",
+			  "bind": "/srv/dev-disk-by-label-6TB/tvseries"
+			},
+			{
+				"container": "/downloads",
+				"bind": "/srv/dev-disk-by-label-6TB/downloads"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8989:8989/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
