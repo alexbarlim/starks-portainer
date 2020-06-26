@@ -19,6 +19,7 @@
 		],
 		"platform": "linux",
 		"restart_policy": "unless-stopped",
+		"network": "bridge",
 		"ports": [
 		  "9117:9117/tcp"
 		],
