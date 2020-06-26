@@ -423,6 +423,80 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "PLEX",
+		"name": "plex",
+		"description": "PLEX é o servidor de mídia onde toda mágica irá acontecer.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/plex.png",
+		"image": "linuxserver/plex:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "host",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "VERSION",
+			  "label": "VERSION",
+			  "default": "latest"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/path/to/library"
+			},
+			{
+			  "container": "/media",
+			  "bind": "/srv/dev-disk-by-label-6TB"
+			}
+		  ],
+
+
+		"ports": [
+		  "32400:32400/tcp",
+		  "3005:3005/tcp",
+		  "8324:8324/tcp",
+		  "32469:32469/tcp",
+		  "1900:1900/udp",
+		  "32410:32410/udp",
+		  "32412:32412/udp",
+		  "32413:32413/udp",
+		  "32414:32414/udp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
