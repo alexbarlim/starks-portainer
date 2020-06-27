@@ -848,6 +848,63 @@
 		],
 		"restart_policy": "unless-stopped"
 		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Organizr",
+		"name": "organizr",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/organizr.png",
+		"image": "linuxserver/organizr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/organizr/config"
+			}
+		  ],
+
+
+		"ports": [
+		  "9983:80/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
 	  }
 
 
