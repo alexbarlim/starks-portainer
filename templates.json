@@ -872,7 +872,7 @@
 		],
 		"platform": "linux",
 		"network": "bridge",
-		"command": "rcd --rc-web-gui --rc-addr :5572 --rc-user username --rc-pass password",
+
 
 
 		"env": [
