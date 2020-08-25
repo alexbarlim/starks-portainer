@@ -850,8 +850,79 @@
 		
 	  },
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		  {
+		"type": 1,
+		"title": "Rclone",
+		"name": "rclone",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/rclone.png",
+		"image": "rclone/rclone:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
 
 
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config/rclone",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/rclone/config"
+			},
+			{
+			  "container": "/logs",
+			  "bind": "/srv/dev-disk-by-label-6TB/appdata/rclone/config/logs"
+			}
+		  ],
+
+
+		"ports": [
+		  "5572:5572/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+	
+	
+	
+	
+	
 
 
 
