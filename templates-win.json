@@ -1,0 +1,991 @@
+[
+	
+
+	
+
+
+
+	  {
+		"type": 1,
+		"title": "Jackett",
+		"name": "jackett",
+		"description": "Jackett funciona como um servidor proxy. Um agregador de indexadores. Ele é essencial para que o Sonarr, Radarr, Lidarr e Transmission funcionem adequadamente.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/jackett.png",
+		"image": "linuxserver/jackett:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/jackett/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/t/appdata/jackett/blackhole"
+			}
+		  ],
+
+
+		"ports": [
+		  "9117:9117/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Sonarr",
+		"name": "sonarr",
+		"description": "Sonarr monitora vários feeds. Se bem configurado, ele captura, baixa, renomeia e organiza sempre que sair um episódio novo.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/sonarr.png",
+		"image": "linuxserver/sonarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/sonarr/data"
+			},
+			{
+			  "container": "/tv",
+			  "bind": "/t/tvseries"
+			},
+			{
+				"container": "/downloads",
+				"bind": "/t/downloads"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8989:8989/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Radarr",
+		"name": "radarr",
+		"description": "Radarr é a mesma coisa do Sonarr, só que para filmes. Se bem configurado, ele captura, baixa, renomeia e organiza o filme.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/radarr.png",
+		"image": "linuxserver/radarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/radarr/data"
+			},
+			{
+			  "container": "/movies",
+			  "bind": "/t/movies"
+			},
+			{
+				"container": "/downloads",
+				"bind": "/t/downloads"
+			  }
+		  ],
+
+
+		"ports": [
+		  "7878:7878/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Bazarr",
+		"name": "bazarr",
+		"description": "Bazarr é integrado ao Radarr e Sonarr para baixar as legendas.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/bazarr.png",
+		"image": "linuxserver/bazarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/bazarr/config"
+			},
+			{
+			  "container": "/movies",
+			  "bind": "/t/movies"
+			},
+			{
+				"container": "/tv",
+				"bind": "/t/tvseries"
+			  }
+		  ],
+
+
+		"ports": [
+		  "6767:6767/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Lidarr",
+		"name": "lidarr",
+		"description": "Lidarr funciona igual aos outros. Só que para músicas.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/lidarr.png",
+		"image": "linuxserver/lidarr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/lidarr/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/t/downloads"
+			},
+			{
+				"container": "/music",
+				"bind": "/t/music"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8688:8686/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Transmission",
+		"name": "transmission",
+		"description": "Client Torrent.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/transmission.png",
+		"image": "linuxserver/transmission:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			},
+			{
+				"name": "TRANSMISSION_WEB_HOME",
+				"label": "TRANSMISSION_WEB_HOME",
+				"default": "/combustion-release/"
+			  },
+			  {
+				"name": "USER",
+				"label": "USER",
+				"default": "username"
+			  },
+			  {
+				"name": "PASS",
+				"label": "PASS",
+				"default": "password"
+			  }
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/transmission/data"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/t/downloads"
+			}
+		  ],
+
+
+		"ports": [
+		  "9091:9091/tcp",
+		  "51413:51413/tcp",
+		  "51413:51413/udp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "PLEX",
+		"name": "plex",
+		"description": "PLEX é o servidor de mídia onde toda mágica irá acontecer.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/plex.png",
+		"image": "linuxserver/plex:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "host",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "VERSION",
+			  "label": "VERSION",
+			  "default": "latest"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/path/to/library"
+			},
+			{
+			  "container": "/media",
+			  "bind": "/t"
+			}
+		  ],
+
+
+		"ports": [
+		  "32400:32400/tcp",
+		  "3005:3005/tcp",
+		  "8324:8324/tcp",
+		  "32469:32469/tcp",
+		  "1900:1900/udp",
+		  "32410:32410/udp",
+		  "32412:32412/udp",
+		  "32413:32413/udp",
+		  "32414:32414/udp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Tautulli",
+		"name": "tautulli",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/tautulli.png",
+		"image": "linuxserver/tautulli:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/tautulli"
+			},
+			{
+			  "container": "/logs",
+			  "bind": "/t/appdata/tautulli"
+			}
+		  ],
+
+
+		"ports": [
+		  "8181:8181/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Deemix",
+		"name": "deemix",
+		"description": "Mais informações em: https://gitlab.com/Bockiii/deemix-docker",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/deemix.png",
+		"image": "registry.gitlab.com/bockiii/deemix-docker",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/deemix/config"
+			},
+			{
+			  "container": "/downloads",
+			  "bind": "/t/downloads"
+			}
+		  ],
+
+
+		"ports": [
+		  "6595:6595/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Jellyfin",
+		"name": "jellyfin",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/jellyfin.png",
+		"image": "linuxserver/jellyfin:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/path/to/library-jellyfin"
+			},
+			{
+			  "container": "/media",
+			  "bind": "/t"
+			},
+			{
+				"container": "/opt/vc/lib",
+				"bind": "/opt/vc/lib"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8096:8096/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Ubooquity",
+		"name": "ubooquity",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/ubooquity.png",
+		"image": "linuxserver/ubooquity:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "MAXMEM",
+			  "label": "MAXMEM",
+			  "default": "1024"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/ubooquity/config"
+			},
+			{
+			  "container": "/books",
+			  "bind": "/t/cursos"
+			},
+			{
+				"container": "/files",
+				"bind": "/t"
+			  }
+		  ],
+
+
+		"ports": [
+		  "2202:2202/tcp",
+		  "2203:2203/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Duplicati",
+		"name": "duplicati",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/duplicati.png",
+		"image": "linuxserver/duplicati:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/duplicati/config"
+			},
+			{
+			  "container": "/backups",
+			  "bind": "/t/backups"
+			},
+			{
+				"container": "/source",
+				"bind": "/"
+			  },
+			{
+				"container": "/source-internal",
+				"bind": "/"
+			  },
+			{
+				"container": "/source-6tb",
+				"bind": "/t"
+			  }
+		  ],
+
+
+		"ports": [
+		  "8200:8200/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		  {
+		"type": 1,
+		"title": "Rclone",
+		"name": "rclone",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/rclone.png",
+		"image": "rclone/rclone:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",  
+		"command": "rcd --rc-web-gui --rc-addr :5572 --rc-user username --rc-pass password",
+
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			},
+			{
+			  "name": "UMASK_SET",
+			  "label": "UMASK_SET",
+			  "default": "022"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config/rclone",
+			  "bind": "/t/appdata/rclone/config"
+			},
+			{
+			  "container": "/logs",
+			  "bind": "/t/appdata/rclone/config/logs"
+			}
+		  ],
+
+
+		"ports": [
+		  "5572:5572/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  },
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+	  {
+		"type": 1,
+		"title": "Organizr",
+		"name": "organizr",
+		"description": "Descrição.",
+		"logo": "https://raw.githubusercontent.com/alexbarlim/templates-portainer/master/imgs/organizr.png",
+		"image": "linuxserver/organizr:latest",
+		"categories": [
+		  "All"
+		],
+		"platform": "linux",
+		"network": "bridge",
+
+
+		"env": [
+			{
+			  "name": "PUID",
+			  "label": "PUID",
+			  "default": "1000"
+			},
+			{
+			  "name": "PGID",
+			  "label": "PGID",
+			  "default": "100"
+			},
+			{
+			  "name": "TZ",
+			  "label": "TZ",
+			  "default": "America/Sao_Paulo"
+			}
+		  ],
+
+
+		"volumes": [
+			{
+			  "container": "/config",
+			  "bind": "/t/appdata/organizr/config"
+			}
+		  ],
+
+
+		"ports": [
+		  "9983:80/tcp"
+		],
+		"restart_policy": "unless-stopped"
+		
+	  }
+
+
+
+	  
+
+
+
+
+
+]
